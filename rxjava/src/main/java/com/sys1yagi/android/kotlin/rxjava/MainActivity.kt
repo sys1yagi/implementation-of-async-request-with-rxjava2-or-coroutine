@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
     fun parallelRequest() {
         disposable.dispose()
         binding.parallelRequestResult.text = "loading..."
-        Single.zip<User, Shop, Pair<User, Shop>>(
+        disposable = Single.zip<User, Shop, Pair<User, Shop>>(
                 userApi.me().subscribeOn(Schedulers.io()),
                 shopApi.getShop(10L).subscribeOn(Schedulers.io()),
                 BiFunction { user, shop ->
