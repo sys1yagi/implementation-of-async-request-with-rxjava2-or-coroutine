@@ -1,4 +1,4 @@
-package com.sys1yagi.android.kotlin.coroutine.api
+package com.sys1yagi.android.kotlin.rxjava.api
 
 import android.util.Log
 import com.sys1yagi.android.kotlin.coroutine.entity.User
@@ -10,13 +10,16 @@ class UserApi {
         return Single.create {
             try {
                 Log.d("rxjava", "start me ${Thread.currentThread().id}")
-                Thread.sleep(2000)
-                if (Random().nextBoolean()) {
+                Thread.sleep(1000)
+                val random = Random()
+                if (random.nextInt(100) > 20) {
                     Log.d("rxjava", "success me ${Thread.currentThread().id}")
                     it.onSuccess(User(10))
                 } else {
                     Log.d("rxjava", "error me ${Thread.currentThread().id}")
-                    it.onError(Exception())
+                    if (!it.isDisposed) {
+                        it.onError(Exception())
+                    }
                 }
             } catch(e: InterruptedException) {
                 // no op

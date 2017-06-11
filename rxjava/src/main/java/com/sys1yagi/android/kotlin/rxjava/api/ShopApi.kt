@@ -1,4 +1,4 @@
-package com.sys1yagi.android.kotlin.coroutine.api
+package com.sys1yagi.android.kotlin.rxjava.api
 
 import android.util.Log
 import com.sys1yagi.android.kotlin.coroutine.entity.Shop
@@ -12,12 +12,14 @@ class ShopApi {
                 Log.d("rxjava", "start getShop ${Thread.currentThread().id}")
                 Thread.sleep(2000)
                 val random = Random()
-                if (random.nextBoolean()) {
+                if (random.nextInt(100) > 20) {
                     Log.d("rxjava", "success getShop ${Thread.currentThread().id}")
                     it.onSuccess(Shop(id))
                 } else {
                     Log.d("rxjava", "error getShop ${Thread.currentThread().id}")
-                    it.onError(Exception())
+                    if (!it.isDisposed) {
+                        it.onError(Exception())
+                    }
                 }
             } catch(e: InterruptedException) {
                 // no op

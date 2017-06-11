@@ -1,15 +1,15 @@
-package com.sys1yagi.android.kotlin.coroutine
+package com.sys1yagi.android.kotlin.rxjava
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import com.sys1yagi.android.kotlin.coroutine.api.ShopApi
-import com.sys1yagi.android.kotlin.coroutine.api.SubscriptionShopApi
-import com.sys1yagi.android.kotlin.coroutine.api.UserApi
-import com.sys1yagi.android.kotlin.coroutine.databinding.ActivityMainBinding
 import com.sys1yagi.android.kotlin.coroutine.entity.Shop
 import com.sys1yagi.android.kotlin.coroutine.entity.User
+import com.sys1yagi.android.kotlin.rxjava.api.ShopApi
+import com.sys1yagi.android.kotlin.rxjava.api.SubscriptionShopApi
+import com.sys1yagi.android.kotlin.rxjava.api.UserApi
+import com.sys1yagi.android.kotlin.rxjava.databinding.ActivityMainBinding
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposables

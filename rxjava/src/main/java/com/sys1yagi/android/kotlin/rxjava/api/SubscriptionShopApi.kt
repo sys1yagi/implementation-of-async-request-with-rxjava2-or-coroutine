@@ -1,4 +1,4 @@
-package com.sys1yagi.android.kotlin.coroutine.api
+package com.sys1yagi.android.kotlin.rxjava.api
 
 import android.util.Log
 import com.sys1yagi.android.kotlin.coroutine.entity.Shop
@@ -18,7 +18,9 @@ class SubscriptionShopApi {
                     it.onSuccess(List(random.nextInt(20), { Shop(random.nextLong()) }))
                 } else {
                     Log.d("rxjava", "error getSubscriptionShops ${Thread.currentThread().id}")
-                    it.onError(Exception())
+                    if (!it.isDisposed) {
+                        it.onError(Exception())
+                    }
                 }
             } catch(e: InterruptedException) {
                 // no op
