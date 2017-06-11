@@ -1,7 +1,7 @@
 package com.sys1yagi.android.kotlin.rxjava.api
 
 import android.util.Log
-import com.sys1yagi.android.kotlin.coroutine.entity.Shop
+import com.sys1yagi.android.kotlin.rxjava.entity.Shop
 import io.reactivex.Single
 import java.util.*
 

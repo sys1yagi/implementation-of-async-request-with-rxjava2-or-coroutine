@@ -1,3 +1,5 @@
-package com.sys1yagi.android.kotlin.coroutine.entity
+package com.sys1yagi.android.kotlin.rxjava.entity
 
-class Product
+class Product {
+
+}

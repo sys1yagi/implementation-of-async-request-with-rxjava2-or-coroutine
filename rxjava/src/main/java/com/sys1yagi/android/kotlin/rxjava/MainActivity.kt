@@ -4,12 +4,12 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import com.sys1yagi.android.kotlin.coroutine.entity.Shop
-import com.sys1yagi.android.kotlin.coroutine.entity.User
 import com.sys1yagi.android.kotlin.rxjava.api.ShopApi
 import com.sys1yagi.android.kotlin.rxjava.api.SubscriptionShopApi
 import com.sys1yagi.android.kotlin.rxjava.api.UserApi
 import com.sys1yagi.android.kotlin.rxjava.databinding.ActivityMainBinding
+import com.sys1yagi.android.kotlin.rxjava.entity.Shop
+import com.sys1yagi.android.kotlin.rxjava.entity.User
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposables
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     fun singleRequest() {
         disposable.dispose()
         binding.singleRequestResult.text = "loading..."
-        disposable = shopApi.getShop(10)
+        val disposable = shopApi.getShop(10)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .handleDisposed(binding.singleRequestResult, this)
