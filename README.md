@@ -158,11 +158,15 @@ job = ui {
 
 ## Parallel request
 
+Coroutine function can set [CoroutineStart](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/-coroutine-start/index.html).
+`CoroutineStart.DEFAULT` immediately schedules coroutine for execution according to its context.
+So, parallel execution can be written as follows.
+
 ```kotlin
 job = ui {
     try {
-        val userJob = async { userApi.me() }
-        val shopJob = async { shopApi.getShop(10L) }
+        val userJob = async { userApi.me() } // start immediately
+        val shopJob = async { shopApi.getShop(10L) } // start immediately
         val user = userJob.await()
         val shop = shopJob.await()
         // success
