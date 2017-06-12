@@ -71,6 +71,16 @@ use `zip()`
 
 ## Cancellation
 
+__cancell__
+
+Just call `dispose()`
+
+```kotlin
+disposable.dispose()
+```
+
+__cancellation handling__
+
 use `doOnDispose()`. But Disposable's handling is confusing.
 
 ```kotlin
@@ -177,6 +187,16 @@ job = ui {
 ```
 
 ## Cancellation
+
+__cancell__
+
+Just call `cancel()`
+
+```kotlin
+job.cancel()
+```
+
+__cancellation handling__
 
 When you call `job.cancel()`, throw CancellationException to coroutine block. 
 You can catch it.

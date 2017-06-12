@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             } catch(e: CancellationException) {
                 binding.singleRequestResult.text = "cancel!"
             } catch (e: Exception) {
+                e.printStackTrace()
                 binding.singleRequestResult.text = "error!"
             }
         }
@@ -75,6 +76,7 @@ class MainActivity : AppCompatActivity() {
             } catch(e: CancellationException) {
                 binding.serializedRequestResult.text = "cancel!"
             } catch (e: Exception) {
+                e.printStackTrace()
                 binding.serializedRequestResult.text = "error!"
             }
         }
@@ -91,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             } catch(e: CancellationException) {
                 binding.parallelRequestResult.text = "cancel!"
             } catch (e: Exception) {
+                e.printStackTrace()
                 binding.parallelRequestResult.text = "error!"
             }
         }

@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                         },
                         {
                             binding.singleRequestResult.text = "error!"
+                            it.printStackTrace()
                         }
                 )
     }
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity() {
                                 },
                                 {
                                     binding.serializedRequestResult.text = "error!"
+                                    it.printStackTrace()
                                 }
                         )
     }
@@ -96,6 +98,7 @@ class MainActivity : AppCompatActivity() {
                         },
                         {
                             binding.parallelRequestResult.text = "error!"
+                            it.printStackTrace()
                         }
                 )
     }
