@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     fun singleRequest() {
         disposable.dispose()
         binding.singleRequestResult.text = "loading..."
-        val disposable = shopApi.getShop(10)
+        disposable = shopApi.getShop(10)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .handleDisposed(binding.singleRequestResult, this)
