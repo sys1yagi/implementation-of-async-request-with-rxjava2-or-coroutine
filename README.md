@@ -10,6 +10,15 @@ Implement the following pattern in each environment.
 
 # RxJava2
 
+## Set Up
+
+```groovy
+dependencies {
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.0.3'
+}
+```
+
 ## Single Request
 
 ```kotlin
@@ -114,6 +123,17 @@ shopApi.getShop(10)
 ```
 
 # Coroutine
+
+## Set Up
+
+
+```groovy
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.2-4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.16"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.16"
+}
+```
 
 ## Single Request
 
