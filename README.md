@@ -137,6 +137,8 @@ dependencies {
 
 ## Single Request
 
+use [lanch()](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/launch.html) and [async()](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/async.html). It's [Croutine builders](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md#coroutine-builders).
+
 ```kotlin
 job = launch(UI) {
     try {
@@ -147,6 +149,8 @@ job = launch(UI) {
     }
 }
 ```
+
+[UI](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-android/kotlinx.coroutines.experimental.android/index.html) and [CommonPool](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/-common-pool/index.html) is [Coroutine Context](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-coroutine-context/index.html) objects.
 
 `launch(UI)` and `async(CommonPool)` are somewhat verbose.
  So I implemented the following function.
@@ -234,3 +238,5 @@ job = ui {
     }
 }
 ```
+
+
