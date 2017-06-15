@@ -22,7 +22,7 @@ dependencies {
 ## Single Request
 
 ```kotlin
-disposable = shopApi.getShop(10)
+val disposable = shopApi.getShop(10)
     .subscribeOn(Schedulers.io())
     .observeOn(AndroidSchedulers.mainThread())
     .subscribe(
@@ -40,7 +40,7 @@ disposable = shopApi.getShop(10)
 use `flatMap()`
 
 ```kotlin
-disposable = userApi.me()
+val disposable = userApi.me()
     .flatMap { user ->
         subscriptionShopApi.getSubscriptionShops(user.id)
     }
@@ -61,7 +61,7 @@ disposable = userApi.me()
 use `zip()`
 
 ```kotlin
- disposable = Single.zip<User, Shop, Pair<User, Shop>>(
+val disposable = Single.zip<User, Shop, Pair<User, Shop>>(
         userApi.me().subscribeOn(Schedulers.io()),
         shopApi.getShop(10L).subscribeOn(Schedulers.io()),
         BiFunction { user, shop ->
@@ -140,7 +140,7 @@ dependencies {
 use [lanch()](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/launch.html) and [async()](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.experimental/async.html). It's [Croutine builders](https://github.com/Kotlin/kotlin-coroutines/blob/master/kotlin-coroutines-informal.md#coroutine-builders).
 
 ```kotlin
-job = launch(UI) {
+val job = launch(UI) {
     try {
         val shop = async(CommonPool) { shopApi.getShop(10) }.await()
         // success
@@ -166,7 +166,7 @@ fun ui(start: CoroutineStart = CoroutineStart.DEFAULT, block: suspend CoroutineS
 You can write it more simply.
 
 ```kotlin
-job = ui {
+val job = ui {
     try {
         val shop = async { shopApi.getShop(10) }.await()
         // success
@@ -179,7 +179,7 @@ job = ui {
 ## Sequential request
 
 ```kotlin
-job = ui {
+val job = ui {
     try {
         val userJob = async { userApi.me() }
         val subscriptionShopsJob = async { subscriptionShopApi.getSubscriptionShops(userJob.await().id) }
@@ -198,7 +198,7 @@ Coroutine function can set [CoroutineStart](https://kotlin.github.io/kotlinx.cor
 So, parallel execution can be written as follows.
 
 ```kotlin
-job = ui {
+val job = ui {
     try {
         val userJob = async { userApi.me() } // start immediately
         val shopJob = async { shopApi.getShop(10L) } // start immediately
@@ -227,7 +227,7 @@ When you call `job.cancel()`, throw CancellationException to coroutine block.
 You can catch it.
 
 ```kotlin
-job = ui {
+val job = ui {
     try {
         val shop = async { shopApi.getShop(10) }.await()
         // success
