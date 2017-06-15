@@ -5,6 +5,7 @@ Implement the following pattern in each environment.
 - Single request
 - Sequential request
 - Parallel request
+- Error Handling
 - Cancellation
 
 # RxJava2
