@@ -156,8 +156,8 @@ val job = launch(UI) {
  So I implemented the following function.
 
 ```kotlin
-fun <T> async(context: CoroutineContext = CommonPool, start: CoroutineStart = CoroutineStart.DEFAULT, block: suspend CoroutineScope.() -> T)
-        = kotlinx.coroutines.experimental.async(context, start, block)
+fun <T> CoroutineScope.async(context: CoroutineContext = CommonPool, start: CoroutineStart = CoroutineStart.DEFAULT, block: suspend CoroutineScope.() -> T)
+        = kotlinx.coroutines.experimental.async(this.context + context, start, block)
 
 fun ui(start: CoroutineStart = CoroutineStart.DEFAULT, block: suspend CoroutineScope.() -> Unit)
         = launch(UI, start, block)
